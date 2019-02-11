@@ -1,0 +1,13 @@
+//import all main styles
+@import '~bootstrap/scss/bootstrap.scss';
+
+$fa-font-path: "~font-awesome/fonts"; 
+@import "~font-awesome/scss/font-awesome";
+@import "./reset.scss";
+
+@import '~owl.carousel/dist/assets/owl.carousel.css';
+
+@import "./fonts.css";
+@import './common.scss';
+@import './header.scss';
+@import './sections.scss';
