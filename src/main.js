@@ -14,49 +14,40 @@ $(document).ready(function () {
     nav: true,
   });
 
-  $('#owl img').click(function () {
+  const images = $('#owl img');
+  images.click(function () {
     const src = $(this).attr('src');
     const owlGallery = $('#owl-modal');
     owlGallery.empty();
-    const arr = [];
     let startFrom;
-
-    $('#owl img').each(function (i, e) {
+    let srcs = []
+    images.each(function (i, e) {
       const otherSrc = $(e).attr('src');
       if (src === otherSrc) {
         startFrom = i;
-
       };
-      arr.push(otherSrc);
+      srcs.push(otherSrc);
     });
 
-    let tail = []
-    arr.forEach((e, i) => {
-      if (i >= startFrom) {
-        $('<img>', { 'class': 'item', 'src': e }).appendTo(owlGallery);
-      } else {
-        tail.push(e)
-      }
-    });
-    tail.forEach((e, i) => {
-      $('<img>', { 'class': 'item', 'src': e }).appendTo(owlGallery);
-    });
+    const head = srcs.slice(startFrom);
+    const tail = srcs.slice(0, startFrom);
+    head.concat(tail).forEach((e, i) => {
+      $('<img>', { 'class': 'item', 'src': e }).appendTo(owlGallery)
+    })
 
-    const gal = owlGallery.owlCarousel({
+
+    owlGallery.owlCarousel({
       singleItem: true,
       items: 1,
       navigation: false,
     });
 
-    gal.on('initialized.owl.carousel', function () {
-      console.log('hrllo');
-
+    owlGallery.on('initialized.owl.carousel', function () {
       owlGallery.show();
-
     })
 
     $('#modal').unbind().on('hidden.bs.modal', function () {
-      gal.trigger('destroy.owl.carousel');
+      owlGallery.trigger('destroy.owl.carousel');
       owlGallery.fadeIn();
     });
   })
