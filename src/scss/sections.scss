@@ -130,3 +130,11 @@
     }
   }
 }
+
+//gallery
+.owl-carousel:not(.owl-loaded){ 
+  opacity: 0; 
+}
+#owl-modal {
+  display: none;
+} 
