@@ -1,2 +1,21 @@
-section.services
-  h3 Услуги
+section.contacts#contacts-id
+  h3.text-center Контакты
+  .container
+    .row
+      .col-md-4
+        .adress.contact-card
+          img(src=require('src/images/destination.png'), alt="")
+          div г. Москва, д. Николо – Хованское, технопарк «Индиго», уч. 9/1,
+      .col-md-4
+        .mail.contact-card
+          img(src=require('src/images/mail.png'), alt="")
+          div almaz3pl@gmail.com
+      .col-md-4
+        .phone.contact-card
+          img(src=require('src/images/smartphone.png'), alt="")
+          div +7(916) 652-73-85
+      
+  .container-fluid
+    .row.map
+      script(type="text/javascript", charset="utf-8", async, src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A63f5d8c2c79f333eee41f1df207355a0964e644c89673d6d7cfeb2c698699699&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false")
+

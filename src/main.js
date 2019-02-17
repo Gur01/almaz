@@ -7,15 +7,18 @@ import i from './js/index.js';
 $(document).ready(function () {
   i.scroll('#headerButtonId', '#servicesId'); // func(button, to)
   i.clickTab('#aboutTabId', '#aboutBlockId'); // func(tabs, block) 
-
+  i.sendEmail();
+  //owl carousel-gallery
   $('#owl').owlCarousel({
-    autoPlay: 3000, //Set AutoPlay to 3 seconds
-    items: 6,
+    autoPlay: 3000,
+    items: 4,
     nav: true,
+    margin: 5
   });
-
   const images = $('#owl img');
   images.click(function () {
+    $('#modal').find('.loader').css('display', 'inline-block');
+
     const src = $(this).attr('src');
     const owlGallery = $('#owl-modal');
     owlGallery.empty();
@@ -35,24 +38,24 @@ $(document).ready(function () {
       $('<img>', { 'class': 'item', 'src': e }).appendTo(owlGallery)
     })
 
+    owlGallery.on('initialized.owl.carousel', function () {
+      setTimeout(() => {
+        $('#modal').find('.loader').css('display', 'none');
+        $('#modal').find('.modal-content').css({ display: 'block', opacity: 1 });
+        $('#modal').find('.owl-item').css({ display: 'block', opacity: 1 });
+      }, 1000);
+    })
 
     owlGallery.owlCarousel({
-      singleItem: true,
       items: 1,
-      navigation: false,
+      nav: true,
     });
-
-    owlGallery.on('initialized.owl.carousel', function () {
-      owlGallery.show();
-    })
 
     $('#modal').unbind().on('hidden.bs.modal', function () {
       owlGallery.trigger('destroy.owl.carousel');
-      owlGallery.fadeIn();
+      $('#modal').find('.modal-content').css({ display: '', opacity: '' });
+      $('#modal').find('.modal-dialog').css({ display: '', opacity: '' })
     });
   })
-
-
-
 
 }) 

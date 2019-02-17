@@ -1,2 +1,24 @@
-section.services
-  h3 Услуги
+section.call#callId
+  h3.text-center Оставить заявку
+  .container
+    //- form(action="https://formspree.io/gv@betwinneraffiliates.com", method="POST", id="contact-form")
+    form(action="https://formspree.io/gv@betwinneraffiliates.com", method="POST", id="contact-form")
+      input( type="text", name="_gotcha", style="display:none")
+      .form-row
+        .form-group.col-md-5.offset-md-1
+          input(type="text", name="name", class="form-control required", placeholder="Имя", id="name")
+          .invalid-feedback *Это поле обязательно для заполнения
+        .form-group.col-md-5
+          input(type="text", name="company",class="form-control", placeholder="Компания", id="company")
+      .form-row.text
+        .form-group.col-md-5.offset-md-1
+          input(type="text", name="phone", class="form-control required", placeholder="Телефон", id="phone")
+          .invalid-feedback *Это поле обязательно для заполнения
+        .form-group.col-md-5
+          input(type="text", name="mail", class="form-control", placeholder="Почта", id="mail")
+      .form-row
+        .col-md-10.offset-md-1
+          textarea(rows="6", name="coments", class="form-control", placeholder="Комментарии", id="coments")
+      .form-row
+        .col.text-center
+          button(type="submit", name="", class="btn btn-outline-light") Отправить

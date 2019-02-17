@@ -4,15 +4,16 @@ section.gallery#galleryId
     .row
       .col
         .owl-carousel.owl-theme#owl
-          img(src=require('src/images/gallery/test1.png'), alt="", data-toggle="modal", data-target="#modal")
-          img(src=require('src/images/gallery/test2.png'), alt="", data-toggle="modal", data-target="#modal")
-          img(src=require('src/images/gallery/test3.png'), alt="", data-toggle="modal", data-target="#modal")
-          img(src=require('src/images/gallery/test4.png'), alt="", data-toggle="modal", data-target="#modal")
-          img(src=require('src/images/gallery/test5.png'), alt="", data-toggle="modal", data-target="#modal")
-          img(src=require('src/images/gallery/test6.png'), alt="", data-toggle="modal", data-target="#modal")
+          img(src=require('src/images/gallery/test1.jpg'), alt="", data-toggle="modal", data-target="#modal")
+          img(src=require('src/images/gallery/test2.jpg'), alt="", data-toggle="modal", data-target="#modal")
+          img(src=require('src/images/gallery/test3.jpg'), alt="", data-toggle="modal", data-target="#modal")
+          img(src=require('src/images/gallery/test4.jpg'), alt="", data-toggle="modal", data-target="#modal")
   .modal(tabindex="-1", role="dialog", class="modal fade", id="modal", aria-hidden="true")
-    .modal-dialog(role="document")
+    .loader
+      i.fa.fa-spinner.rotating
+    .modal-dialog(role="document", class="modal-dialog-centered modal-lg")
       .modal-content
         .modal-header.d-block.text-right 
-          span#close(data-dismiss="modal") X
+          span#close(data-dismiss="modal") 
+            i.fa.fa-times
         .modal-body#owl-modal.owl-carousel.owl-theme
