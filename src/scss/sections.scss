@@ -201,14 +201,14 @@
       font-weight: 400;
       text-transform: uppercase;
       font-size: 18px;
-      padding-left: 40px;
-      padding-right: 40px;
-    }
+      padding: 10px 40px;
+  }
   }
 }
 
 //contacts
 .contacts {
+  position: relative;
   .contact-card {
     display: flex;
     flex-direction: column;

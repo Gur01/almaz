@@ -1,23 +1,24 @@
 header.header
   .header-top#header-top-id
-    .container
-      .row
-        .col-md-3.d-flex.align-items-center
-          .header-logo
-            h1 Алмаз логистик
-        .col-md-6.d-flex.align-items-center.text-center
-          nav.header-menu.w-100
-            ul
-              li
-                a(href="", class="active") Услуги
-              li
-                a(href="") О складе
-              li
-                a(href="") Галерея
-              li
-                a(href="") Контакты
-        .col-md-3.d-flex.align-items-center
-          .header-phone 8(926) 354-22-22
+    .header-top--wrapper
+      .container-fluid
+        .row
+          .col-md-3.d-flex.align-items-center
+            .header-logo
+              h1 Алмаз логистик
+          .col-md-6.d-flex.align-items-center.text-center
+            nav.header-menu.w-100
+              ul
+                li
+                  a(href="#", id="serviceLink") Услуги
+                li
+                  a(href="#", id="aboutLink") О складе
+                li
+                  a(href="#", id="galleryLink") Галерея
+                li
+                  a(href="#", id="contactsLink") Контакты
+          .col-md-3
+            .header-phone 8(926) 354-22-22
   .header-center
     .container
       .row
@@ -25,11 +26,11 @@ header.header
           .header-description-main Услуги ответственного хранения для малого и среднего бизнеса
       .row
         .col-sm-12.col-md-8.offset-md-2
-          .header-description Новый технологичный склад класса А площадью 5000 м2
+          .header-description Новый технологичный склад класса А площадью <b>5000</b> м2
       .row
         .col
           .header-button.text-center
-            a(href="").btn.btn-outline-light Оставить заявку
+            a(href="#").btn.btn-outline-light#callLink Оставить заявку
   .header-bottom
     .container
       .row

@@ -15,6 +15,10 @@ header {
     position: absolute;
     top: 30px;
     width: 100%;
+    .header-top--wrapper {
+      margin: 0 auto;
+      max-width: 1600px;
+    }
     &.fixed {
       position: fixed;
       background-color: #fff;
@@ -30,7 +34,10 @@ header {
         a {
           color: #34495e;
           &:hover {
-            color: #95a5a6;
+            color: rgba(52, 73, 94, .8);
+            &:after {
+              background-color: rgba(52, 73, 94, .8);
+            }
           }
         }
         a.active {
@@ -63,8 +70,21 @@ header {
             color: #bdc3c7;
             text-decoration: none;
             transition: color ease .3s;
+            position: relative;
             &:hover {
               color: #ecf0f1;
+              &:after {
+                width: 100%;
+              }
+            }
+            &:after {
+              transition: all ease .3s;
+              content: '';
+              display: block;
+              width: 0;
+              height: 1px;
+              margin: auto;
+              background-color: #ecf0f1;
             }
           }
   
@@ -82,6 +102,11 @@ header {
 
   .header-center {
     color: #fff;
+    b {
+      font-weight: 600;
+      font-size: 32px;
+      color: #27ae60;
+    }
     .header-description-main{
       font-size: 32px;
       text-align: center;
@@ -89,16 +114,18 @@ header {
       font-weight: 600;
     }
     .header-description {
+      letter-spacing: 1.5px;
       text-align: center;
       text-transform: none;
       font-size: 24px;
+
     }
     .header-button {
-      margin-top: 25px;
+      margin-top: 30px;
       a {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding: 10px 40px;
         font-weight: 400;
+        font-size: 18px;
       }
     }
   }

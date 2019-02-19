@@ -2,8 +2,9 @@ import { loadavg } from 'os';
 
 class Functions {
   scroll(el, target) {
-    const scrollHeight = $(target).offset().top;
-    $(el).click(() => {
+    $(el).click((e) => {
+      let scrollHeight = $(target).offset().top;
+      e.preventDefault();
       $('html, body').animate({ scrollTop: scrollHeight }, 300);
     })
   }
