@@ -1,5 +1,3 @@
-import { loadavg } from 'os';
-
 class Functions {
   scroll(el, target) {
     $(el).click((e) => {
@@ -20,32 +18,57 @@ class Functions {
     })
   }
 
-  sendEmail() {
+  sendEmail(toastr) {
+    toastr.options = {
+      positionClass: 'toast-bottom-right'
+    }
     $('#contact-form').on('submit', function (e) {
       e.preventDefault();
       let canSubmit = true;
+
       $(this).find('.form-control').each((i, e) => {
         const el = $(e);
+        console.log(el);
         if (el.hasClass('required') && !e.value) {
+          el.css('border-color', '#dc3545')
           el.siblings('.invalid-feedback').css('display', 'inline-block');
           canSubmit = false;
         } else {
-          el.siblings('.invalid-feedback').css('display', '')
+          el.css('border-color', '');
+          el.siblings('.invalid-feedback').css('display', '');
         }
       });
 
-      if (canSubmit) {
-        console.log('submitting');
-        console.log($(this).serialize());
 
-        $.ajax({
-          url: "https://formspree.io/gv@betwinneraffiliates.com",
-          method: "POST",
-          data: $(this).serialize(),
-          dataType: "json"
+      if (!canSubmit) {
+        toastr.error("Заполните обязательные поля", 'Заявка не отправлена')
+      } else {
+        const onSuccess = () => {
+          toastr.success('Мы свяжемся с Вами в ближайшее время', 'Заявка отправлена');
+          $(this).find('.form-control').val('');
+          $(this).find('.button-text').css('visibility', 'visible')
+          $(this).find('span.spinner').css('display', 'none');
+        }
+        const onError = (error) => {
+          toastr.error('Заявка не отправлена')
+          $(this).find('.button-text').css('visibility', 'visible')
+          $(this).find('span.spinner').css('display', 'none');
+        }
+        $(this).find('.button-text').css('visibility', 'hidden');
+        $(this).find('span.spinner').css('display', 'inline-block');
+
+        let message = [];
+        const data = $("#contact-form").find('.form-control').each((i, e) => {
+          message += `${e.name} : ${e.value} \n`
         });
 
-        // $(this).get(0).reset();
+        $.post('https://postmail.invotes.com/send',
+          { "access_token": "s88zf1ka8efjwksygzya2uet", subject: 'Message from site Almaz', text: message },
+          onSuccess
+        ).fail(onError);
+
+        return false;
+
       }
     })
   }

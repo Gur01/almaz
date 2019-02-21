@@ -190,19 +190,37 @@
     }
     .invalid-feedback {
       display: none;
-      top: 40px;
+      top: 31px;
       position: absolute;
       font-size: 16px;
       text-transform: none;
       text-align: left;
     }
     button {
-      margin-top: 30px;
       font-weight: 400;
       text-transform: uppercase;
       font-size: 18px;
       padding: 10px 40px;
-  }
+      .button-text {
+        visibility: visible;
+      }
+    }
+    .button-wrapper {
+      margin-top: 30px;
+      display: inline-block;
+      position: relative;
+      span.spinner {
+        transform: translate(-50%, -50%);        
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: none;
+        font-size: 25px;
+        i {
+          color: #212529;
+        }
+      }
+    }
   }
 }
 
