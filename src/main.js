@@ -16,8 +16,7 @@ $(function () {
   i.sendEmail(toastr);
   i.owl();
   i.navbarScroll();
+  i.humburgerActive();
 
   //owl carousel-gallery
-
-
 }) 

@@ -13,9 +13,30 @@ h3 {
   color: #2c3e50;
   text-transform: uppercase;
   text-align: center;
+  @media (max-width: 1199px) {
+    margin-bottom: 60px;
+  }
+  @media (max-width: 991px) {
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 40px;
+    font-size: 30px;
+  }
 }
 section {
   padding-top: 80px;
+  @media (max-width: 1199px) {
+    padding-top: 70px;
+  }
+  @media (max-width: 991px) {
+    padding-top: 60px;
+  }
+  @media (max-width: 767px) {
+    padding-top: 30px;
+  }
+
 }
 p {
   font-size: 18px;

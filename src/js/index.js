@@ -2,8 +2,9 @@ class Functions {
   scroll(el, target) {
     $(el).click((e) => {
       let scrollHeight = $(target).offset().top;
+      let headerHeight = $('#header-top-id').height();
       e.preventDefault();
-      $('html, body').animate({ scrollTop: scrollHeight }, 300);
+      $('html, body').animate({ scrollTop: scrollHeight - headerHeight }, 300);
     })
   }
 
@@ -25,10 +26,8 @@ class Functions {
     $('#contact-form').on('submit', function (e) {
       e.preventDefault();
       let canSubmit = true;
-
       $(this).find('.form-control').each((i, e) => {
         const el = $(e);
-        console.log(el);
         if (el.hasClass('required') && !e.value) {
           el.css('border-color', '#dc3545')
           el.siblings('.invalid-feedback').css('display', 'inline-block');
@@ -38,7 +37,6 @@ class Functions {
           el.siblings('.invalid-feedback').css('display', '');
         }
       });
-
 
       if (!canSubmit) {
         toastr.error("Заполните обязательные поля", 'Заявка не отправлена')
@@ -68,7 +66,6 @@ class Functions {
         ).fail(onError);
 
         return false;
-
       }
     })
   }
@@ -139,6 +136,20 @@ class Functions {
         }
       }
     })
+  }
+
+  humburgerActive() {
+    const nav = $('#nav')
+    const hamburger = $('#hamburger');
+    hamburger.click(function () {
+      $(this).toggleClass('active');
+      nav.toggleClass('in');
+    });
+    nav.find('li').click(function () {
+      nav.removeClass('in');
+      hamburger.removeClass('active')
+    })
+
   }
 }
 

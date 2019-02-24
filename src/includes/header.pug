@@ -3,29 +3,31 @@ header.header
     .header-top--wrapper
       .container-fluid
         .row
-          .col-md-3.d-flex.align-items-center
+          .col-10.col-md-3.d-flex.align-items-center.pr-0
             .header-logo
               h1 Алмаз логистик
-          .col-md-6.d-flex.align-items-center.text-center
-            nav.header-menu.w-100
+          .col-2.col-md-6.position-static.d-flex.align-items-center
+            nav.header-menu.w-100#nav
               ul
-                li
-                  a(href="#", id="serviceLink") Услуги
-                li
-                  a(href="#", id="aboutLink") О складе
-                li
-                  a(href="#", id="galleryLink") Галерея
-                li
-                  a(href="#", id="contactsLink") Контакты
+                li#serviceLink
+                  a(href="#") Услуги
+                li#aboutLink
+                  a(href="#") О складе
+                li#galleryLink
+                  a(href="#") Галерея
+                li#contactsLink
+                  a(href="#") Контакты
+            .hamburger-menu#hamburger
+              i
           .col-md-3
             .header-phone 8(926) 354-22-22
   .header-center
     .container
       .row
-        .col-sm-12.col-md-6.offset-md-3
+        .col-12.col-md-10.offset-md-1.col-lg-6.offset-lg-3
           .header-description-main Услуги ответственного хранения для малого и среднего бизнеса
       .row
-        .col-sm-12.col-md-8.offset-md-2
+        .col-12.col-md-10.offset-md-1.col-lg-8.offset-lg-2
           .header-description Новый технологичный склад класса А площадью <b>5000</b> м2
       .row
         .col
