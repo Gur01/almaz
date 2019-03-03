@@ -75,77 +75,60 @@
     @media (max-width: 767px) {
       margin-top: 20px;
     }
-    }
-  .about-tab {
-    margin-top: 70px;
-    margin-bottom: 250px;
-    position: relative;
-    li {
-      background-color: #ecf0f1;
-      margin-bottom: 46px;
-      padding-left: 46px;
-      padding-right: 20px;
-      line-height: 60px;
-      box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.15);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: all ease .3s;
-      font-size: 22px;
-      text-transform: none;
-      &:hover {
-        background-color: #ccc;
-      }
-      i.fa {
-        opacity: 0;
-        font-size: 30px;
-        color: #2c3e50;
-        transition: inherit;
-      }
-      // &:hover {
-      //   i.fa {
-      //     opacity: 1;
-      //   }
-      // }
-      &.active {
-        color: #fff;
-        background-color: #7f8c8d;
-        i.fa {
-          opacity: 1;
-          display: inline-block;
-          color: #fff;
-          font-size: 30px;
-        }    
-      }
-    
-    }
   }
-  .about-tab__card {
-    background-color: #fff;
-    padding: 25px 10px 10px 45px;
-    position: absolute;
-    font-size: 18px;
-    top: 200px;
-    box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.15);
-    visibility: hidden;
-    &:first-child {
-      visibility: visible;
-    }
+  .accordion {
+    padding: 70px 0;
+    min-height: 400px;
     ul {
-      li {
-        margin-bottom: 16px;
-        position: relative;
-        i.fa {
-          position: absolute;
-          left: -25px;
-          top: 8px;
-          color: #27ae60;
-          font-size: 14px;  
+      &:nth-child(2) {
+        display: block;
+      }
+    }
+    .about-tab {
+      padding-left: 45px;
+      font-size: 24px;
+      line-height: 70px;
+      background-color: #7f8c8d;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 4px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;    
+      padding-right: 45px;
+      i {
+        font-size: 30px;
+        transition: all .3s ease;
+      }
+      &.active {
+        i {
+          transform: rotate(-180deg)
         }
       }
     }
-  }
+    ul {
+      background-color: #fff;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-left: 50px;
+      padding-right: 15px;
+      display: none;
+      margin-bottom: 4px;
+      li {
+        position: relative;
+        margin-bottom: 20px;
+        i {
+          color: #27ae60;
+          position: absolute;
+          left: -30px;
+          top: 4px;
+        }
+      }
+    }
+    }
+
   .about-advantages {
     text-align: center;
     margin-top: 120px;

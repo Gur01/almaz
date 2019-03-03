@@ -151,6 +151,18 @@ class Functions {
     })
 
   }
+
+  accordion() {
+    const tab = $("#accordion").find(".about-tab")
+    tab.first().addClass('active');
+    tab.click(function () {
+      if ($(this).hasClass('active')) return;
+      $(this).siblings('div').removeClass('active');
+      $(this).addClass('active');
+      $(this).siblings('div').not(".active").next().slideUp()
+      $(this).next().slideToggle();
+    })
+  }
 }
 
 export default new Functions;

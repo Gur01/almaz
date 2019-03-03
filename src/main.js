@@ -17,6 +17,8 @@ $(function () {
   i.owl();
   i.navbarScroll();
   i.humburgerActive();
+  i.accordion();
+
 
   //owl carousel-gallery
 }) 
