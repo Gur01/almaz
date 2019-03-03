@@ -17,8 +17,8 @@ header {
     width: 100%;
     @media (max-width: 767px) {
       top: 0;
-      padding-top: 10px;
-      padding-bottom: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       background-color: #fff;
     }
     .hamburger-menu {
@@ -83,7 +83,7 @@ header {
       z-index: 100;
       box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.15);
       top: -1px;
-      padding: 10px 0;
+      padding: 15px 0;
       h1 {
         color: #2c3e50;
       }
