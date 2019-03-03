@@ -71,16 +71,40 @@ class Functions {
   }
 
   owl() {
+    $('#owl').on('initialized.owl.carousel', function () { })
+
     $('#owl').owlCarousel({
       autoPlay: 3000,
       items: 4,
       nav: true,
-      margin: 5
+      margin: 5,
+      mouseDrag: false,
+      navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'>"],
+      dots: true,
+      responsive: true,
+      responsive: {
+        // breakpoint from 0 up
+        0: {
+          items: 1
+        },
+        // breakpoint from 480 up
+        480: {
+          items: 2
+        },
+        // breakpoint from 768 up
+        768: {
+          items: 3
+        },
+        1000: {
+          items: 4
+        }
+      }
     });
+
     const images = $('#owl img');
+
     images.click(function () {
       $('#modal').find('.loader').css('display', 'inline-block');
-
       const src = $(this).attr('src');
       const owlGallery = $('#owl-modal');
       owlGallery.empty();
@@ -96,29 +120,20 @@ class Functions {
 
       const head = srcs.slice(startFrom);
       const tail = srcs.slice(0, startFrom);
+      let dynamic = []
       head.concat(tail).forEach((e, i) => {
-        $('<img>', { 'class': 'item', 'src': e }).appendTo(owlGallery)
+        dynamic.push({ src: e })
       })
 
-      owlGallery.on('initialized.owl.carousel', function () {
-        setTimeout(() => {
-          $('#modal').find('.loader').css('display', 'none');
-          $('#modal').find('.modal-content').css({ display: 'block', opacity: 1 });
-          $('#modal').find('.owl-item').css({ display: 'block', opacity: 1 });
-        }, 1000);
+      $(this).lightGallery({
+        addClass: 'fixed-size',
+        mode: 'lg-fade',
+        dynamic: true,
+        dynamicEl: dynamic,
+        download: false,
       })
 
-      owlGallery.owlCarousel({
-        items: 1,
-        nav: true,
-      });
-
-      $('#modal').unbind().on('hidden.bs.modal', function () {
-        owlGallery.trigger('destroy.owl.carousel');
-        $('#modal').find('.modal-content').css({ display: '', opacity: '' });
-        $('#modal').find('.modal-dialog').css({ display: '', opacity: '' })
-      });
-    })
+    });
   }
 
   navbarScroll() {
@@ -149,7 +164,6 @@ class Functions {
       nav.removeClass('in');
       hamburger.removeClass('active')
     })
-
   }
 
   accordion() {

@@ -3,6 +3,8 @@ import 'bootstrap';
 import 'owl.carousel';
 import toastr from "toastr";
 import i from './js/index.js';
+import "lightgallery"
+import "lightgallery/dist/css/lightgallery.css"
 
 $(function () {
   i.scroll('#headerButtonId', '#servicesId'); // scroll down

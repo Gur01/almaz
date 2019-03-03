@@ -193,42 +193,55 @@
 //gallery
 .gallery {
   padding-top: 100px;
-}
-#modal {
-  .modal-header {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  #close {
-    font-size: 25px;
-    cursor: pointer;
-    i {
-      transition: transform .3s ease;
-      &:hover {
-        transform: scale(1.2)
-      }
+  .owl-carousel {
+    position: relative;
+    img {
+      cursor: pointer;
     }
   }
-  .loader {
+  .owl-dots {
+    margin-top: 15px;
     position: absolute;
-    top: 50%;
     left: 50%;
-    z-index: 100;
-    transform: translate(-50%,-50%);
-    color: #fff;
-    font-size: 40px;
-    
+    transform: translateX(-50%);
   }
-  .modal-content {
-    display: none;
-    opacity: 0;
-    transition: all .3s ease;
+  .owl-nav {
+    margin-top: 0;
+    top:0;
+    font-family: "FontAwesome";
+    font-size: 35px;
+    top:0;
+    top: 50%;
+    width: 100%;
+    color: #000;
+    @media (max-width: 1199px) {
+      font-size: 30px;
+    }
+      @media (max-width: 991px) {
+        font-size: 25px;
+    }
+    @media (max-width: 767px) {
+      font-size: 20px;
+    }
+    .owl-prev,
+    .owl-next {
+      position: absolute;
+      top: 0;
+      margin: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      outline: 0;
+      i {
+        padding: 10px;
+      }
+    }
+    .owl-prev {
+      left: 10px;
+    }
+    .owl-next {
+      right: 10px;
+    }
   }
-  .owl-item {
-    display: none;
-    opacity: 0;
-    transition: all .3s ease;
-  } 
 }
 
 // Forms
