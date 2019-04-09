@@ -8,13 +8,13 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      main: './src/main.js',
-      single: './src/single.js',
+      'main': './src/main.js',
+      'single': './src/single.js',
     },
 
     output: {
       filename: 'js/[name].js',
-      path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'dist'),
     },
 
     module: {
@@ -115,17 +115,18 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         filename: 'index.html',
-        // chunks: ['index'],
-        template:  './src/index.pug'
+        chunks: ['main'],
+        template: './src/index.pug'
       }),
       new HtmlWebpackPlugin({
         filename: 'single.html',
-        // chunks: ['single'],
-        template:  './src/single.pug'
+        chunks: ['single'],
+        template: './src/single.pug'
       }),
+
       new MiniCssExtractPlugin({
         filename: "[name].css",
-        chunkFilename: "[id].css"
+        // chunkFilename: "[id].css"
       }),
       new webpack.ProvidePlugin({
         $: 'jquery',

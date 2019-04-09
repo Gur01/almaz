@@ -1,0 +1,28 @@
+.single {
+  header {
+    min-height: 400px;
+    background-image: url('../images/cara1.jpg');
+    .header-center {
+      margin-top: 60px;
+      h2 {
+        text-align: center;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  // section
+  section {
+    h3 {
+      font-size: 28px;
+    }
+  }
+  footer {
+    background-color: #ecf0f1;
+    .copyright {
+      color: #2c3e50;
+    }
+  }
+
+}
