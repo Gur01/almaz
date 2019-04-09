@@ -13,7 +13,7 @@ header {
   min-height: 500px;
   .header-top {
     position: absolute;
-    top: 30px;
+    top: 24px;
     width: 100%;
     @media (max-width: 767px) {
       top: 0;
@@ -22,6 +22,7 @@ header {
       background-color: #fff;
     }
     .hamburger-menu {
+      margin-top: -3px;
       display: none;
       cursor: pointer;
       right: 0;
@@ -142,6 +143,7 @@ header {
             &:first-child {
               margin-left: 0;
             }
+
           }
         }
       }
@@ -181,36 +183,90 @@ header {
           }
         }
       }
-
+    #serviceLink {
+      padding-right: 20px;
+    }
     ul {
-        li {
-          display: inline-block;
-          margin-left: 16px;
-          a.active {
-            color: #ecf0f1;
-          }
-          a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color ease .3s;
-            position: relative;
-            &:hover {
-              color: #ecf0f1;
-              &:after {
-                width: 100%;
-              }
-            }
-            &:after {
-              transition: all ease .3s;
-              content: '';
-              display: block;
-              width: 0;
-              height: 1px;
-              margin: auto;
-              background-color: #ecf0f1;
-            }
+      li {
+        display: inline-flex;
+        margin-left: 16px;
+        display: inline-flex;
+        position: relative;
+        &:hover {
+          ul {
+            display: inline-block;
           }
         }
+        &>ul {
+          background-color: #fff;
+          position: absolute; 
+          top: 0;
+          z-index: 2;
+          margin-top: 50px;
+          width: 150px;
+          box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.15);
+
+          &:hover {
+            display: inline-block;
+          }
+          li {
+            margin: 0;
+            padding: 0;
+            display: block;
+            font-size: 16px;
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.15);
+            }
+            a {
+              padding: 10px;
+              vertical-align: middle;
+              color: #273039;
+              width: 100%;
+              height: 100%;
+              display: inline-block;
+              &:after {
+                display: none;
+              }
+            }
+          }; 
+        }
+
+        .fa {
+          font-size: 14px;
+          margin-left: 6px;
+          margin-top: 15px;
+          position: absolute;
+          right: 0;
+          transition: all .3s ease;
+          cursor: pointer;
+        }
+        a.active {
+          color: #ecf0f1;
+        }
+        a {
+          color: #bdc3c7;
+          text-decoration: none;
+          transition: color ease .3s;
+          position: relative;
+          padding-top: 6px;
+          padding-bottom: 6px;
+          &:hover {
+            color: #ecf0f1;
+            &:after {
+              width: 100%;
+            }
+          }
+          &:after {
+            transition: all ease .3s;
+            content: '';
+            display: block;
+            width: 0;
+            height: 1px;
+            margin: auto;
+            background-color: #ecf0f1;
+          }
+        }
+      }
       }
     }
 

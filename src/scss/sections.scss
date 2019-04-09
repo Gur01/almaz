@@ -9,6 +9,7 @@
     overflow: hidden;
     padding: 20px;
     transition: all ease .3s;
+    cursor: pointer;
     @media (max-width: 991) {
       margin-bottom: 10px !important;
       height: auto;
@@ -55,8 +56,12 @@
 
     }
 
+    .card-body {
+      padding: 1rem 10px;
+    }
 
   }
+
 }
 
 //about
@@ -98,6 +103,15 @@
       justify-content: space-between;
       align-items: center;    
       padding-right: 45px;
+      span {
+        white-space: nowrap;
+        @media (max-width: 991px) {
+          font-size: 22px;
+        }
+        @media (max-width: 767px) {
+         font-size: 18px;
+        } 
+      }
       i {
         font-size: 30px;
         transition: all .3s ease;
